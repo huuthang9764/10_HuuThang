@@ -5,12 +5,12 @@ USE `fresher`;
 DROP TABLE IF EXISTS `Trainee`;
 CREATE TABLE `Trainee` (
     TraineeID INT AUTO_INCREMENT PRIMARY KEY,
-    Full_Name VARCHAR(255) NOT NULL,
+    Full_Name NVARCHAR(255) NOT NULL, -- NVARCHAR thay vi VARCHAR
     Birth_Date DATE NOT NULL,
     Gender ENUM('male', 'female', 'unknown') NOT NULL,
-    ET_IQ INT CHECK (ET_IQ BETWEEN 0 AND 20),
-    ET_Gmath INT CHECK (ET_Gmath BETWEEN 0 AND 20),
-    ET_English INT CHECK (ET_English BETWEEN 0 AND 50),
+    ET_IQ TINYINT CHECK (ET_IQ BETWEEN 0 AND 20), -- TINYINT thay vi INT
+    ET_Gmath TINYINT CHECK (ET_Gmath BETWEEN 0 AND 20), -- TINYINT thay vi INT
+    ET_English TINYINT CHECK (ET_English BETWEEN 0 AND 50), -- TINYINT thay vi INT
     Training_Class VARCHAR(50),
     Evaluation_Notes TEXT
 );
