@@ -31,6 +31,8 @@ VALUES ('01','Nguyen Huu Thang',DATE'2008-11-11','male','9','13','43','38','noco
 ('09','Duong Ngoc Nguyen',DATE'2022-10-07','unknown','2','6','36','38','nocomment','39'),
 ('10','Nguyen Anh Minh',DATE'2022-10-08','male','7','6','39','38','nocomment','40'),
 
+
+--INSERT INTO `Trainee`(Full_Name,Birth_Date,Gender,ET_IQ,ET_Gmath,ET_English,Training_Class,Evaluation_Notes,VTI_Account)
 -- ('John Doe', '1995-03-10', 'male', 15, 18, 40, 'Class A', 'Good performance', 'john.doe@example.com'),
 -- ('Jane Smith', '1998-09-25', 'female', 17, 16, 48, 'Class B', 'Exceeds expectations', 'jane.smith@example.com'),
 -- ('Michael Johnson', '1997-07-03', 'male', 14, 19, 42, 'Class A', 'Solid effort', 'michael.johnson@example.com'),
@@ -41,6 +43,10 @@ VALUES ('01','Nguyen Huu Thang',DATE'2008-11-11','male','9','13','43','38','noco
 -- ('Olivia Johnson', '1998-01-22', 'female', 19, 14, 49, 'Class B', 'Outstanding performer', 'olivia.johnson@example.com'),
 -- ('William Davis', '1996-12-08', 'male', 13, 16, 41, 'Class A', 'Showing improvement', 'william.davis@example.com'),
 -- ('Emma Smith', '2001-06-17', 'female', 15, 17, 44, 'Class C', 'Working hard', 'emma.smith@example.com');
+
+update `trainee`
+set Evaluation_Notes=" "
+where TraineeID= 01;
 
 
 -- Exercise 2 : Data Types
