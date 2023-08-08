@@ -69,26 +69,3 @@ CREATE TABLE `Datatype2` (
 );
 
 
-
-DROP DATABASE IF EXISTS `Fresher_management`;
-CREATE DATABASE  `Fresher_management`;
-USE `Fresher_management`;
-
-DROP TABLE IF EXISTS `Trainee`;
-CREATE TABLE `Trainee` (
-    TraineeID INT AUTO_INCREMENT PRIMARY KEY,
-    Full_Name NVARCHAR(255) NOT NULL, -- NVARCHAR thay vi VARCHAR
-    Birth_Date DATE NOT NULL,
-    Gender ENUM('male', 'female', 'unknown') NOT NULL,
-    ET_IQ TINYINT CHECK (ET_IQ BETWEEN 0 AND 20), -- TINYINT thay vi INT
-    ET_Gmath TINYINT CHECK (ET_Gmath BETWEEN 0 AND 20), -- TINYINT thay vi INT
-    ET_English TINYINT CHECK (ET_English BETWEEN 0 AND 50), -- TINYINT thay vi INT
-    Training_Class VARCHAR(50),
-    Evaluation_Notes TEXT
-);
-
-ALTER TABLE `Trainee` 
-ADD COLUMN VTI_Account VARCHAR(100) NOT NULL UNIQUE;  
-
-
-
