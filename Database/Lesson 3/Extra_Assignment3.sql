@@ -34,19 +34,8 @@ VALUES ('Nguyen Huu Thang',DATE'1999-11-11','male','9','13','43','Rocket 38','no
 
 SELECT * FROM fresher.trainee;
 -- Quesion 2  DATE_FORMAT() lay nam va thang cua Trainee voi %Y va %m
-SELECT
-  DATE_FORMAT(Birth_Date, '%Y-%m') AS Birth_Month,
-  COUNT(*) AS Passed_Count
-FROM
-  Trainee
-WHERE
-    ET_IQ + ET_Gmath >= 20 AND ET_IQ >= 8
-        AND ET_Gmath >= 8
-        AND ET_English >= 18
-GROUP BY
-  DATE_FORMAT(Birth_Date, '%Y-%m')
-ORDER BY
-  DATE_FORMAT(Birth_Date, '%Y-%m');
+  
+  SELECT GROUP_CONCAT(Full_Name), MONTH(Birth_Date) FROM `trainee` GROUP BY MONTH(Birth_Date);
   
 -- Quesion 3 su dung TIMESTAMPDIFF() de tra ve 1 so nguyen giu 2 bieu thuc date hoac datetime
 SELECT 

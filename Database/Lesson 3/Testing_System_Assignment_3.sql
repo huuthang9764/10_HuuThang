@@ -1,7 +1,7 @@
 USE `Testing_System_Assignment_1`;
 
 -- Question 2:
-SELECT Department_name FROM Department;
+SELECT * FROM Department;
 
 -- Question 3:
 SELECT DepartmentID FROM department
@@ -24,10 +24,10 @@ WHERE CreateDate < "2019-12-21";
 SELECT QuestionID
 FROM Answer
 GROUP BY QuestionID
-HAVING COUNT(*) >= 4;
+HAVING COUNT(QuestionID) >= 4;
 
 -- Question 8:
-SELECT ExamID FROM exam
+SELECT Code FROM exam
 WHERE Duration >= "60" AND CreateDate < "2019-12-21";
 
 -- Question 9:
@@ -43,11 +43,13 @@ WHERE DepartmentID = 2;
 
 -- Question 11:
 SELECT * FROM account
-WHERE FullName LIKE 'D%o';
+WHERE (SUBSTRING_INDEX(FullName, ' ', -1)) LIKE 'D%o';
+
 
 -- Question 12:
 -- select * from exam;
-
+	DELETE FROM exam 
+    WHERE CreateID < '2019-12-20';
 -- DELETE FROM Exam
 -- WHERE ExamID IN (
 --     SELECT ExamID

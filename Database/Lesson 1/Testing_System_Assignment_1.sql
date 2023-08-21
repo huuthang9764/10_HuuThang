@@ -22,8 +22,8 @@ CREATE TABLE `Account` (
     FullName NVARCHAR(255) NOT NULL,
     DepartmentID INT,
     PositionID INT,
-    CreateDate DATE,
-    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
+    CreateDate DATE default now(),
+    FOREIGN KEY (DepartmentID) REFERENCES `Department`(DepartmentID),
     FOREIGN KEY (PositionID) REFERENCES `Position`(PositionID)
 );
 
@@ -79,9 +79,7 @@ DROP TABLE IF EXISTS `ExamQuestion`;
 CREATE TABLE `ExamQuestion` (
     ExamID INT,
     QuestionID INT,
-    PRIMARY KEY (ExamID, QuestionID),
-    FOREIGN KEY (ExamID) REFERENCES Exam(ExamID),
-    FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID)
+    PRIMARY KEY (ExamID, QuestionID)
 );
 
 DROP TABLE IF EXISTS `Group`;
@@ -89,16 +87,16 @@ CREATE TABLE `Group` (
     GroupID INT AUTO_INCREMENT PRIMARY KEY,
     Group_name NVARCHAR(255) NOT NULL,
     CreatorID INT,
-    CreateDate DATE,
+    CreateDate DATE default now(),
     FOREIGN KEY (CreatorID) REFERENCES `Account`(AccountID)
 );
 
 DROP TABLE IF EXISTS `GroupAccount`;
 CREATE TABLE `GroupAccount` (
+	GroupAccuntID INT primary key,
     GroupID INT,
     AccountID INT,
-    JoinDate DATE,
-    PRIMARY KEY (GroupID, AccountID),
+    JoinDate DATE default now(),
     FOREIGN KEY (GroupID) REFERENCES `Group`(GroupID),
     FOREIGN KEY (AccountID) REFERENCES `Account`(AccountID)
 );
